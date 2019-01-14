@@ -7,7 +7,7 @@ If you want greedy path variables and query string parameters, rather add {proxy
 
 ## To Create, Test, Package & Deploy a Lambda Function
 
-| Command                                                                                               | What it does                                                                                       |
+| Steps to perform                                                                                      | What it does                                                                                       |
 |-------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
 | sudo sam init --runtime python3.7                                                                     | Setup a template folder structure                                                                  |
 | Write function called app.py                                                                          | Function code                                                                                      |
@@ -27,7 +27,7 @@ If you want greedy path variables and query string parameters, rather add {proxy
 | sudo aws cloudformation describe-stacks \--stack-name sam-app \--query 'Stacks[].Outputs'             | Retrieve API Gateway Endpoint URL                                                                  |
 
 ## To Delete the Lambda Function
-| Command                                                      | What it does                                                      |
+| Steps to perform                                             | What it does                                                      |
 |--------------------------------------------------------------|-------------------------------------------------------------------|
 | export MY_STACK=*<your_stack_name>*                          | Set Cloudformation Stack to use as variable                       |
 | sudo aws cloudformation delete-stack \--stack-name $MY_STACK | Remove stack from CloudFormation (including API Gateway & Lambda) |
