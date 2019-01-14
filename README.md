@@ -18,7 +18,7 @@ If you want greedy path variables and query string parameters, rather add {proxy
 | Verify “.aws-sam/build” subdir created                                                                | Check dependencies are also there                                                                  |
 | du -sh .aws-sam/build                                                                                 | Check package size (must be <250MB)                                                                |
 | sudo sam local start-api                                                                              | Start local API Gateway for testing                                                                |
-| Load in browser: ‘http://localhost:3000/hello’                                                        | Invoke function. Assumes GET hello here.                                                           |
+| Load in browser: ‘http://localhost:3000/calc’                                                         | Invoke function. Assumes GET hello here.                                                           |
 | export MY_BUCKET=*<your_s3_bucket>*                                                                   | Set S3 bucket to use as variable                                                                   |
 | aws s3 mb s3://$MY_BUCKET                                                                             | Create S3 bucket to upload package as ZIP                                                          |
 | sudo sam package \--output-template-file packaged.yaml \--s3-bucket $MY_BUCKET                        | Package the function and upload to S3                                                              |
