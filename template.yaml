@@ -4,11 +4,6 @@ Description: >
     myfunc
     Describe what this function does here
 
-Globals:
-    Function:
-        Timeout: 3
-        MemorySize: 128
-
 Resources:
     MyFunction:
         Type: AWS::Serverless::Function
@@ -16,21 +11,23 @@ Resources:
             CodeUri: myfunc/
             Handler: app.lambda_handler
             Runtime: python3.7
+            MemorySize: 128
+            Timeout: 3
             Environment: 
                 Variables:
                     PARAM1: VALUE
             Events:
-                SayHello:
+                Calculate:
                     Type: Api 
                     Properties:
-                        Path: /hello
-                        Method: get
+                        Path: /calc/{proxy+}
+                        Method: ANY
 
 Outputs:
 
     MyFunctionApi:
       Description: "API Gateway endpoint URL for Prod stage for this function"
-      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/calc/"
 
     MyFunction:
       Description: "This Lambda Function ARN"

@@ -13,6 +13,9 @@ def lambda_handler(event, context):
     return {
         "statusCode": 200,
         "body": json.dumps(
-            {"message": "Hello World!", "location": ip.text.replace("\n", "")}
+            {"message": "Hello World!",
+             "path": event['pathParameters']['proxy'],
+             "query": event['queryStringParameters'], 
+             "location": ip.text.replace("\n", "")}
         ),
     }
