@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    myfunc
+    Describe what this function does here
+
+Globals:
+    Function:
+        Timeout: 3
+        MemorySize: 128
+
+Resources:
+    HelloWorldFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: myfunc/
+            Handler: app.lambda_handler
+            Runtime: python3.7
+            Environment: 
+                Variables:
+                    PARAM1: VALUE
+            Events:
+                HelloWorld:
+                    Type: Api 
+                    Properties:
+                        Path: /hello
+                        Method: get
+
+Outputs:
+
+    MyFunctionApi:
+      Description: "API Gateway endpoint URL for Prod stage for this function"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+
+    MyFunction:
+      Description: "This Lambda Function ARN"
+      Value: !GetAtt MyFunction.Arn
+
+    MyFunctionIamRole:
+      Description: "Implicit IAM Role created for this function"
+      Value: !GetAtt MyFunctionRole.Arn
