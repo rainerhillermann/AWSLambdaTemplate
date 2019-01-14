@@ -10,7 +10,7 @@ Globals:
         MemorySize: 128
 
 Resources:
-    HelloWorldFunction:
+    MyFunction:
         Type: AWS::Serverless::Function
         Properties:
             CodeUri: myfunc/
@@ -20,7 +20,7 @@ Resources:
                 Variables:
                     PARAM1: VALUE
             Events:
-                HelloWorld:
+                SayHello:
                     Type: Api 
                     Properties:
                         Path: /hello
