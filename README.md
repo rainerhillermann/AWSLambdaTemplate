@@ -1,5 +1,5 @@
 # AWSLambdaTemplate
-Simple template for setting up Lambda Functions in AWS
+Simple template for setting up Lambda Functions in AWS using Ubuntu 16.04 LTS
 
 Note: this template.yaml file uses explicit parameters defined in the API "Path:" which need to be handled in your function code.
 
